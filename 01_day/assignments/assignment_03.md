@@ -29,3 +29,4 @@ How do these classes interconnect? ofSoundStream is a central component of the a
 - Where is the declaration of audioIn and audioOut?
 - How is ofBaseApp connected to the sound classes?
 - How are ofSoundStreamSettings, ofSoundStream and ofSoundBuffer connected?
+- How is ofApp part of the diagram?

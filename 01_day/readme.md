@@ -15,11 +15,25 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [openFrameworks and Sound](#openframeworks-and-sound)
     - [ofSoundBuffer](#ofsoundbuffer)
     - [ofSoundStream](#ofsoundstream)
+      - [Advanced Implementation Details](#advanced-implementation-details)
     - [ofSoundBaseTypes](#ofsoundbasetypes)
-  - [Recap C++ Programming Specifics (A1)](#recap-c-programming-specifics-a1)
-  - [ofApp: Sound Buffer Example (A2)](#ofapp-sound-buffer-example-a2)
-  - [Software Design Diagram (A3)](#software-design-diagram-a3)
-  - [ofApp: User Driven Interaction (A4)](#ofapp-user-driven-interaction-a4)
+    - [Practice](#practice)
+      - [Recap C++ Programming Specifics (A1)](#recap-c-programming-specifics-a1)
+      - [ofApp: Sound Buffer Example (A2)](#ofapp-sound-buffer-example-a2)
+      - [Software Design Diagram (A3)](#software-design-diagram-a3)
+  - [Sound Generation and Synthesis](#sound-generation-and-synthesis)
+    - [Oscillator Wave Types](#oscillator-wave-types)
+      - [Sine wave](#sine-wave)
+      - [Pulse wave](#pulse-wave)
+      - [Triangle wave](#triangle-wave)
+      - [Sawtooth wave](#sawtooth-wave)
+    - [Practice](#practice-1)
+      - [Refactor the ofApp Example (A4)](#refactor-the-ofapp-example-a4)
+    - [Controlling An Oscillator with Another](#controlling-an-oscillator-with-another)
+      - [Sound Synthesis Sync](#sound-synthesis-sync)
+      - [Amplitude Modulation (AM)](#amplitude-modulation-am)
+      - [Frequency Modulation (FM)](#frequency-modulation-fm)
+    - [Practice](#practice-2)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
@@ -64,7 +78,7 @@ The ofSoundStream object is rarely used directly. It can be specified by proceed
 
 The latter are defined in ofBaseApp and are automatically called whenever the system receives sound from the soundcard or before the app sends sound out to the soundcard. Both methods require the function ofSoundStreamSetup( ofSoundStreamSettings& ) to be called in advance.
 
-#### Advanced Implementation Details <!-- omit in toc -->
+#### Advanced Implementation Details 
 
 openFrameworks itself does not handle the connection to a specific driver API however. Instead, it makes use of an external audio library called RTAudio library. RTAudio library is developed at McGill University and takes care of easily providing access to various different audio interface driver API's. For example, RTAudio library is an API that can handle OSX Core Audio, ALSA, Asio4all, and many more. Hence, calling the ofSoundStreamSetup function actually starts the RTAudio library and triggers the setup of a sound stream.
 
@@ -86,55 +100,103 @@ The ofSoundBaseTypes header file provides a collection of different objects requ
 - ofBaseSoundStream (the real sound stream base class; sends sound buffer through ofSoundStreamSettings callback to app)
 - ofBaseSoundPlayer (playback audio files)
 
+### Practice
 
-## Recap C++ Programming Specifics (A1)
+#### Recap C++ Programming Specifics (A1) 
 
-To understand the way the openFrameworks SDK implements sound and audio, you might want to recap some specifics of the C++ programming language. Please check out the first assignment sheet in the assignments folder and start to answer the questions there. You are encouraged to discuss the questions and answers in the group.
+To understand the way the openFrameworks SDK implements sound and audio, you might want to recap some specifics of the C++ programming language. 
 
-
-## ofApp: Sound Buffer Example (A2)
-
-Check out the first coding example in the code folder. Build and run the example. Review the ofApp code and understand what is happing there. Start to adjust the parameters in the audioOut method and change the sound that is being played back. Check out the second assignment sheet for further instructions. 
-
-
-## Software Design Diagram (A3)
-
-Now that you have become a little familiar with the ofApp class and started to adapt the example, check out the underlying implementation in the SDK and review the audio classes **ofSoundBuffer**, **ofSoundStream** and **ofBaseSoundTypes**. How are these classes connected? Try to derive a software design diagram as best as you can. Check out the second assignment sheet for further instructions. You are encouraged to discuss all questions that come up in the group.
+- Check out the first assignment sheet in the assignments folder and start to answer the questions there. 
+- You are encouraged to discuss the questions and answers in the group.
 
 
-## ofApp: User Driven Interaction (A4)
+#### ofApp: Sound Buffer Example (A2)
 
-Get back to coding and extend the ofApp with interaction. Primarily, add some functionality to change the frequency that is being generated. Frequency changes should follow the chromatic scale and implement a simple MIDI (Musical Instrument Digital Interface) approach. Although we will not look into MIDI deeply, the following information will give you enough input to get started.
+Check out the first coding example in the code folder. Build and run the example. Review the ofApp code and understand what is happing there. Start to adjust the parameters in the audioOut method and change the sound that is being played back and connect the fundamental frequency with mouse interaction to change pitch. 
 
-The MIDI standard was introduced in the 1980's as a communication protocol and digital interface description. MIDI allows for connecting computers and musical instruments like keyboards and synthesizers and having them exchanging musical data defined by the MIDI standard. This way, digital instruments as well as simple hardware controllers can be used to send MIDI data, "MIDI messages", to computers, other instruments and/or vice versa. 
+- Check out the second assignment sheet for further instructions. 
 
-A MIDI message usually contains all the information necessary to describe (and thus trigger) a musical event, for example. One part of a MIDI message is the **note number** which refers to the actual pitch. MIDI supports 128 different note numbers aka pitches and thus up to 10 different octaves. One octave is comprised of 12 individual pitches, for example: 
 
-- C, C#, D, D#, E, F, F#, G, G#, A, A#, B (chromatic scale with sharps "#")
-- C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B (equivalent scale with flats "b")
+#### Software Design Diagram (A3)  
 
-The general formula to calculate any frequency given a certain reference frequency is as follows:
+Now that you have become a little familiar with the ofApp class and started to adapt the example, check out the underlying implementation in the SDK and review the audio classes **ofSoundBuffer**, **ofSoundStream** and **ofBaseSoundTypes**. How are these classes connected? Try to derive a software design diagram as best as you can. 
 
-- af = rf * 2 ^ ((cn - rn) / 12.0) 
+- Check out the third assignment sheet for further instructions. 
+- You are encouraged to discuss all questions that come up in the group.
 
-.. with these components:
 
-- "^" meaning "to the power of"
-- af referring to the frequency to be calculate, i.e., any frequency
-- rf referring to the reference frequency
-- cn referring to the current MIDI note number
-- rn referring to the reference MIDI note number
+## Sound Generation and Synthesis
 
-For example, given 440 Hz (pitch A4, MIDI note number 69) as a reference frequency, the formula would look like this:
+(Digital) sound synthesis describes the process of generating sound with a computer. This is usually done by creating different types of sound waves, combining them and modifying them following certain techniques and approaches (i.e., modulation, filtering, ...). The digital device or application that implements all of the above mentioned steps is usually referred to as a **digital synthesizer**. 
 
-- af = 440.0 * 2 ^ (midiVal-69)/12.0))
+The first element in the synthesis process is the **oscillator** which is responsible for creating a digital representation of a real sound wave. It is important to note that one oscillator is only capable of playing back one sound at a time. Most synthesizers thus provide numerous oscillators and provide options to adjust, combine and process the individual components in order to generate more exotic and complex sounds.
 
-Your task will now be to think about how to implement this exact formula for a set of 128 different note numbers. Check out the second assignment sheet for further instructions. 
+The final output of the synthesizer, usually a digital representation  of a complex sound wave, can then be stored in an audio or sound buffer and be transferred via the soundcard's DAC (digital to audio converter) to the speakers for playback.
 
-For further information on MIDI refer to
-- https://www.midi.org
-- https://www.delamar.de/beats/selber-machen/sequenzer-midi/ 
+- What might be the central elements of an oscillator?
 
+A special sort of oscillator is an LFO, a low frequency oscillator. The frequency of an LFO is usually below 20Hz and often ranges between 0.25-5Hz. LFOs are central elements of sound synthesis. Since they are below human hearing capabilities, there frequency can only be felt and is often used to modulate, i.e., change certain parameters of audible sound waves. For example, this is done to create beat or pattern-like sounds.
+
+### Oscillator Wave Types
+
+Basic oscillators usually represent the following four fundamental types of sound waves:
+
+- Sine wave
+- Pulse wave
+- Triangle wave
+- Sawtooth wave
+
+#### Sine wave
+
+The sine wave is the most fundamental sound wave. Following Fourier theorem, the sine wave can well be used in combination to create all of the other basic wave forms.
+
+Image
+
+Formula
+
+#### Pulse wave
+
+The pulse wave is often referred to as square wave when the duration of the positive and negative cycle is the same.
+
+Image 
+
+Formula
+
+#### Triangle wave
+
+The triangle wave is similar to the sine wave but lacks the smooth changes. Instead, the triangle wave can be considered a linear adaptation of the sine wave cycle.
+
+Image 
+
+Formula
+
+#### Sawtooth wave
+
+The sawtooth wave is similar to the triangle wave but is defined by an aprubt fallback to the trough once the peak of the wave has been reached.
+
+Image
+
+Formula
+
+### Practice
+
+#### Refactor the ofApp Example (A4) 
+
+Reconsider the ofApp example. How could you turn the application into a synthesizer prototype? Add one or two dedicated oscillator objects to the synth. Conceive a first system diagram. Review the diagram in class and start refactoring the code accordingly. 
+
+- Check out the fourth assignment sheet in the assignments folder for further instructions.
+- You are encouraged to discuss the questions and answers in the group.
+
+### Controlling An Oscillator with Another
+
+#### Sound Synthesis Sync
+
+#### Amplitude Modulation (AM)
+
+#### Frequency Modulation (FM)
+
+
+### Practice 
 
 ## Further Thoughts on Expanding the ofApp 
 
@@ -142,8 +204,6 @@ To deepen your understanding of audio programming either in regards to software 
 
 - ofxATK
 - ofxPDSP
-- ofxMidi
+
 
 The addons ofxATK and ofxPDSP provide deep inside into audio programming and come with a bunch of nice examples. Unfortunately, ofxATK has not been maintained recently; ofxPDSP is continuously being developed however some of the examples do not compile. Nonetheless, I recommend to look into both addons to get more and more familiar with the underlying concepts and / or to exploit some of the provided functionalities. 
-
-Interestingly, ofxMidi has been build on top of RtMidi (Midi counterpart to RtAudio). More information can be found at the github repository https://github.com/danomatika/ofxMidi.

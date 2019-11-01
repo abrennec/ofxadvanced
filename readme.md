@@ -18,7 +18,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Grading](#grading)
 - [Syllabus](#syllabus)
   - [Day 1 - Sound Generation with openFrameworks](#day-1---sound-generation-with-openframeworks)
-  - [Day 2 - Mapping Sound to Graphical Objects](#day-2---mapping-sound-to-graphical-objects)
+  - [Day 2 - MIDI Control and Graphical Objects](#day-2---midi-control-and-graphical-objects)
   - [Day 3 - Driving Sound with Images](#day-3---driving-sound-with-images)
 - [Communication & Materials](#communication--materials)
 - [Technical Setup](#technical-setup)

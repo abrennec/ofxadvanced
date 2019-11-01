@@ -27,3 +27,4 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - Play with adding and removing pulse waves to develop some kind of "beat"
   - Change the frequency, phase, etc.
   - Create a underlying beat by simpling using one wave at low frequency with a fast pulsewave
+  - Create a beat frequency by playing back only 2 frequencies that hardly differ in frequency, i.e., 200 Hz and 201 Hz; slowly increase one frequency 
