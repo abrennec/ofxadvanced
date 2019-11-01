@@ -40,7 +40,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ## Course Description 
 
-In this course, we will use [openFrameworks](http://openframeworks.cc) as our creative coding toolkit and will explore its capabilities to work with interactive audio and visuals. To do so, we will first dive into the specifics of how openFrameworks implements audio and provides access to the underlying audio hardware APIs. Following that, we will generate sound using openFrameworks soundbuffers and output routines. We will implement the chromatic scale and interact with it. Next, we will visualize certain sound parameters and connect them with graphical sound objects. The interaction will primarily be user-driven. In a last step, we will explore image data tto drive our sound and potentially melody generation.
+In this course, we will use [openFrameworks](http://openframeworks.cc) as our creative coding toolkit and will explore its capabilities to work with audio and visuals. To do so, we will first dive into the specifics of how openFrameworks implements audio and provides access to the underlying audio hardware APIs. Following that, we will synthesize sounds using openFrameworks soundbuffers and output routines. We will use MIDI control and the chromatic scale to create melody and interact with the sounds. Finally, we will explore how to visualize certain sound parameters and connect them with graphical sound objects. The interaction will primarily be user-driven yet in a last step we will explore image data to drive our sound generation.
 
 The assignments will help you understanding more advanced programming concepts of openFrameworks. Moreover, the coding assignments are intended to be built upon in the case you would like to extend them further.
 
@@ -48,7 +48,7 @@ The assignments will help you understanding more advanced programming concepts o
 ## Learning Objectives
 
 - Deepening the understanding of the openFrameworks SDK and C++ 
-- Understanding the connection between application and driver software
+- Understanding the connection between application and driver software 
 - Getting to know the STL containers list, deque, and map and exploiting them for performance
 - Reading unknown code and understanding its software design 
 - Applying your theoretical knowledge in smaller and larger practical programming examples
@@ -64,16 +64,16 @@ Attendance is everything. You will receive 1 ECTS for participation. If you woul
 
 ## Day 1 - Sound Generation with openFrameworks
 
-The first day of the workshop will be dedicated to understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). You will derive a first software design diagram and implement a first prototype of an interactive synthesizer. 
+The first day of the workshop will be dedicated to understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). We will derive a first software design diagram and implement a first prototype of an interactive synthesizer. 
 
 
-## Day 2 - Mapping Sound to Graphical Objects
+## Day 2 - MIDI Control and Graphical Objects
 
-The second day of the workshop will be dedicated to connecting your synthesizer to graphical objects. Therefore, we will explore a classical "bouncing balls" example as a starting point for further development. You will check out generic stl containers and create a user-driven visual synth.
+The second day of the workshop will be dedicated to connecting your synthesizer to a MIDI controller and certain graphical objects. We will check out generic STL containers and aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development.
 
 ## Day 3 - Driving Sound with Images
 
-The third day of the workshop will be dedicated to exploring image data as an input source for driving your sound generators. You will expand your applications by using image parameters to automatically create melodies or adjust the sound design.
+The third day of the workshop will be dedicated to continuing the implementation of our interactive visual synths. We will explore image data as an input source for driving the sound generators. 
 
 --- 
 
@@ -130,6 +130,10 @@ More details can be found here:
 # Further Readings
 
 ## Books 
+
+Main source of the theoretical aspects of the workshop is the book
+
+- Brian K. Shepard (2013): Refining Sound. A Practical Guide to Synthesis and Synthesizers. Oxford University Press.
 
 ### Creative Coding <!-- omit in toc -->
 
