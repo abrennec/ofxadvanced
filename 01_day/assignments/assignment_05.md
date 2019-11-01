@@ -10,9 +10,9 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ---
 
-# Assignments 4
+# Assignments 5
 
-## Creating a Synth
+## Combining Sine Waves
 
 ### 1 Change the Frequency through Mouse Input
 
@@ -28,5 +28,3 @@ The synthesizer should provide at least two different types of sound wave shapes
 ### 3 Refactor the ofApp: Consider introducing ofSynth Class
 
 Review the current implementation of the ofApp example and consider introducing a dedicated ofSynth class to encapsulate the sound specific implementations.
-
-### 4 Consider inheritance for oscillator 
