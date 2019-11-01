@@ -29,6 +29,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
       - [Sawtooth wave](#sawtooth-wave)
     - [Practice](#practice-1)
       - [Refactor the ofApp Example (A4)](#refactor-the-ofapp-example-a4)
+      - [Design and interact with your Sound (A5)](#design-and-interact-with-your-sound-a5)
     - [Controlling An Oscillator with Another](#controlling-an-oscillator-with-another)
       - [Sound Synthesis Sync](#sound-synthesis-sync)
       - [Amplitude Modulation (AM)](#amplitude-modulation-am)
@@ -186,6 +187,10 @@ Reconsider the ofApp example. How could you turn the application into a synthesi
 
 - Check out the fourth assignment sheet in the assignments folder for further instructions.
 - You are encouraged to discuss the questions and answers in the group.
+
+#### Design and interact with your Sound (A5)
+
+
 
 ### Controlling An Oscillator with Another
 
