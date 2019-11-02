@@ -14,10 +14,23 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ## Create a Software Synthesizer Prototype
 
-- The synthesizer should provide at least two different types of sound wave shapes and it should be possible to extend them with more wave types easily. 
-- The synthesizer should support user interaction. 
-- The synthesizer should be independent from ofApp so that you might be able to easily re-use your code with a different SDK.
+The general goal of this task is to develop and implement a first prototype of a software synthesizer. First of all, the application should generate one specific sound using one or switching between one or more oscillators. 
 
-### 1 Conceive a simple software synthesizer 
+### 1 Base Type Oscillators
 
-### 2 Refactor the ofApp following your design
+To start with, pick one of the basic wave type oscillators not creating sine wave sounds and think about an algorithmic solution to create the particular wave type that does not necessarily involve sine wave combination. How could you create a similar wave form?
+
+### 2 Conceive a simple software synthesizer 
+
+The software should be conceived such that more oscillator types can be added easily. In terms of interaction, the synthesizer should allow for switching between the oscillator types and for changing their frequency values. The synthesizer should be independent from ofApp as much as possible so that you might be able to easily re-use your code with a different SDK.
+Consider the following questions to get started:
+
+- What kind of classes and objects will you need to specify?
+- How will the classes be related to each other?
+- What kind of interface to the ofApp class do you have to conceive?
+- What kind of oscillator types would you like to develop? Consider, for instance,
+  - monophonic or polyphonic sounds based on the sine wave type
+  - harmonic and / or inharmonic sounds
+  - any kind of the basic sound wave types
+
+### 3 Refactor the ofApp following your design

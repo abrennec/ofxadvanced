@@ -287,3 +287,6 @@ To deepen your understanding of audio programming either in regards to software 
 
 
 The addons ofxATK and ofxPDSP provide deep inside into audio programming and come with a bunch of nice examples. Unfortunately, ofxATK has not been maintained recently; ofxPDSP is continuously being developed however some of the examples do not compile. Nonetheless, I recommend to look into both addons to get more and more familiar with the underlying concepts and / or to exploit some of the provided functionalities. 
+
+The software synthesizer "Crystal" is used in the book "Refining sound". It can be downloaded freely at
+http://www.greenoak.com/crystal/dnld2.html

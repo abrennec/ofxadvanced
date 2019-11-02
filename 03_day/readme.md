@@ -15,6 +15,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Practice: Code Review](#practice-code-review)
   - [Using Images as Input Data](#using-images-as-input-data)
   - [ofApp: System Driven Melodies](#ofapp-system-driven-melodies)
+  - [ofx](#ofx)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
@@ -41,6 +42,14 @@ Before we start working on further features of the synthesizer, we will start wi
 - blend bouncing balls with images
 - ... ?
 
+
+## ofx
+
+- ofxPDSP
+  - data to wave example
+- image to sound
+
+- flow distort
 
 
 ## Further Thoughts on Expanding the ofApp
