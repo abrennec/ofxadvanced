@@ -12,21 +12,12 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 # Assignments 4
 
-## Creating a Synth
+## Create a Software Synthesizer Prototype
 
-### 1 Change the Frequency through Mouse Input
+- The synthesizer should provide at least two different types of sound wave shapes and it should be possible to extend them with more wave types easily. 
+- The synthesizer should support user interaction. 
+- The synthesizer should be independent from ofApp so that you might be able to easily re-use your code with a different SDK.
 
-Before going into details of implementing a chromatic change in frequencies, start with a simple interface:
+### 1 Conceive a simple software synthesizer 
 
-- When pressing "f", frequency changes are expected 
-- Any change of mouse_y will result in an increase or decrease of the frequency
-
-### 2 Conceive a first software design for a synthesizer 
-
-The synthesizer should provide at least two different types of sound wave shapes. Furthermore it should allow to change individual parameters.
-
-### 3 Refactor the ofApp: Consider introducing ofSynth Class
-
-Review the current implementation of the ofApp example and consider introducing a dedicated ofSynth class to encapsulate the sound specific implementations.
-
-### 4 Consider inheritance for oscillator 
+### 2 Refactor the ofApp following your design

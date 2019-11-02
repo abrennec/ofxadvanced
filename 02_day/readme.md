@@ -11,7 +11,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 ---
 
 **Table of Contents**
-- [Day 2: MIDI Control and Graphical Objects](#day-2-midi-control-and-graphical-objects)
+- [Day 2: Interaction and MIDI Control](#day-2-interaction-and-midi-control)
   - [MIDI Protocol](#midi-protocol)
   - [Bouncing Balls Concept](#bouncing-balls-concept)
   - [Applying your Synth to Bouncing Balls](#applying-your-synth-to-bouncing-balls)
@@ -20,9 +20,9 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
-# Day 2: MIDI Control and Graphical Objects
+# Day 2: Interaction and MIDI Control
 
-The second day of the workshop will be dedicated to connecting your synthesizer to a MIDI controller and certain graphical objects. We will check out generic STL containers and aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development.
+The second day of the workshop will be dedicated to interaction and aspects of performance. We will connect the previously developed synthesizer to a MIDI controller. Moreover, we will aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development and check out certain generic STL containers to support the object management.
 
 ## MIDI Protocol 
 

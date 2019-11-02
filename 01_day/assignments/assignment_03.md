@@ -25,8 +25,11 @@ Review the three most important audio classes of the SDK in the code to get a fi
 How do these classes interconnect? ofSoundStream is a central component of the audio implementation in openFrameworks. Use it as a starting point for creating a class diagram. Start with answering the following questions:
 
 - How are ofSoundBuffer and ofSoundStream related?
-- What are ofBaseSoundOutput and ofBaseSoundInput? How do they fit into the diagram?
+- How are ofSoundStreamSettings, ofSoundStream and ofSoundBuffer connected?
+- How is ofApp part of the class design?
+
+It might be helpful to also consider looking into the following questions
+
+- What are ofBaseSoundOutput and ofBaseSoundInput?
 - Where is the declaration of audioIn and audioOut?
 - How is ofBaseApp connected to the sound classes?
-- How are ofSoundStreamSettings, ofSoundStream and ofSoundBuffer connected?
-- How is ofApp part of the diagram?

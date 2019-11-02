@@ -12,35 +12,46 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 **Table of Contents**
 - [Day 1: Sound Generation with openFrameworks](#day-1-sound-generation-with-openframeworks)
+  - [Practice](#practice)
+    - [Recap C++ Programming Specifics (A1)](#recap-c-programming-specifics-a1)
   - [openFrameworks and Sound](#openframeworks-and-sound)
     - [ofSoundBuffer](#ofsoundbuffer)
     - [ofSoundStream](#ofsoundstream)
-      - [Advanced Implementation Details](#advanced-implementation-details)
     - [ofSoundBaseTypes](#ofsoundbasetypes)
-    - [Practice](#practice)
-      - [Recap C++ Programming Specifics (A1)](#recap-c-programming-specifics-a1)
-      - [ofApp: Sound Buffer Example (A2)](#ofapp-sound-buffer-example-a2)
-      - [Software Design Diagram (A3)](#software-design-diagram-a3)
+  - [Practice](#practice-1)
+    - [ofApp: Sound Buffer Example (A2)](#ofapp-sound-buffer-example-a2)
+    - [Software Design Diagram (A3)](#software-design-diagram-a3)
   - [Sound Generation and Synthesis](#sound-generation-and-synthesis)
-    - [Oscillator Wave Types](#oscillator-wave-types)
-      - [Sine wave](#sine-wave)
-      - [Pulse wave](#pulse-wave)
-      - [Triangle wave](#triangle-wave)
-      - [Sawtooth wave](#sawtooth-wave)
-    - [Practice](#practice-1)
-      - [Refactor the ofApp Example (A4)](#refactor-the-ofapp-example-a4)
-      - [Design and interact with your Sound (A5)](#design-and-interact-with-your-sound-a5)
-    - [Controlling An Oscillator with Another](#controlling-an-oscillator-with-another)
-      - [Sound Synthesis Sync](#sound-synthesis-sync)
-      - [Amplitude Modulation (AM)](#amplitude-modulation-am)
-      - [Frequency Modulation (FM)](#frequency-modulation-fm)
-    - [Practice](#practice-2)
+  - [Basic Oscillator Wave Types](#basic-oscillator-wave-types)
+    - [Sine wave](#sine-wave)
+      - [Harmonic sounds](#harmonic-sounds)
+    - [Pulse wave](#pulse-wave)
+    - [Triangle wave](#triangle-wave)
+    - [Sawtooth wave](#sawtooth-wave)
+  - [Practice](#practice-2)
+    - [Create a Software Synthesizer Prototype (A4)](#create-a-software-synthesizer-prototype-a4)
+  - [Controlling An Oscillator with Another](#controlling-an-oscillator-with-another)
+    - [Sound Synthesis Sync](#sound-synthesis-sync)
+    - [Amplitude Modulation (AM)](#amplitude-modulation-am)
+    - [Frequency Modulation (FM)](#frequency-modulation-fm)
+  - [Practice](#practice-3)
+    - [Extend the Software Synthesizer Prototype (A5)](#extend-the-software-synthesizer-prototype-a5)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
 # Day 1: Sound Generation with openFrameworks
 
-The first day of the workshop will be dedicated to understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). You will derive a first software design diagram and implement a first prototype of an interactive synthesizer. 
+The first day of the workshop will be dedicated to sound generation and software design. First, we will focus on understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). Second we will start exploring an ofApp synthesis example and develop a first prototype of a software synthesizer.
+
+
+## Practice
+
+### Recap C++ Programming Specifics (A1) 
+
+To understand the way the openFrameworks SDK implements sound and audio, we will recap some specifics of the C++ programming language first of all. 
+
+- Check out the first assignment sheet in the assignments folder and start to answer the questions there. 
+- You are encouraged to discuss the questions and answers in the group.
 
 
 ## openFrameworks and Sound
@@ -79,7 +90,7 @@ The ofSoundStream object is rarely used directly. It can be specified by proceed
 
 The latter are defined in ofBaseApp and are automatically called whenever the system receives sound from the soundcard or before the app sends sound out to the soundcard. Both methods require the function ofSoundStreamSetup( ofSoundStreamSettings& ) to be called in advance.
 
-#### Advanced Implementation Details 
+**Advanced: Implementation Details**
 
 openFrameworks itself does not handle the connection to a specific driver API however. Instead, it makes use of an external audio library called RTAudio library. RTAudio library is developed at McGill University and takes care of easily providing access to various different audio interface driver API's. For example, RTAudio library is an API that can handle OSX Core Audio, ALSA, Asio4all, and many more. Hence, calling the ofSoundStreamSetup function actually starts the RTAudio library and triggers the setup of a sound stream.
 
@@ -101,24 +112,16 @@ The ofSoundBaseTypes header file provides a collection of different objects requ
 - ofBaseSoundStream (the real sound stream base class; sends sound buffer through ofSoundStreamSettings callback to app)
 - ofBaseSoundPlayer (playback audio files)
 
-### Practice
+## Practice
 
-#### Recap C++ Programming Specifics (A1) 
-
-To understand the way the openFrameworks SDK implements sound and audio, you might want to recap some specifics of the C++ programming language. 
-
-- Check out the first assignment sheet in the assignments folder and start to answer the questions there. 
-- You are encouraged to discuss the questions and answers in the group.
-
-
-#### ofApp: Sound Buffer Example (A2)
+### ofApp: Sound Buffer Example (A2)
 
 Check out the first coding example in the code folder. Build and run the example. Review the ofApp code and understand what is happing there. Start to adjust the parameters in the audioOut method and change the sound that is being played back and connect the fundamental frequency with mouse interaction to change pitch. 
 
 - Check out the second assignment sheet for further instructions. 
 
 
-#### Software Design Diagram (A3)  
+### Software Design Diagram (A3)  
 
 Now that you have become a little familiar with the ofApp class and started to adapt the example, check out the underlying implementation in the SDK and review the audio classes **ofSoundBuffer**, **ofSoundStream** and **ofBaseSoundTypes**. How are these classes connected? Try to derive a software design diagram as best as you can. 
 
@@ -128,17 +131,19 @@ Now that you have become a little familiar with the ofApp class and started to a
 
 ## Sound Generation and Synthesis
 
-(Digital) sound synthesis describes the process of generating sound with a computer. This is usually done by creating different types of sound waves, combining them and modifying them following certain techniques and approaches (i.e., modulation, filtering, ...). The digital device or application that implements all of the above mentioned steps is usually referred to as a **digital synthesizer**. 
+(Digital) sound synthesis describes the process of generating sound with a computer. This is usually done by creating different types of sound waves, combining them and modifying them following certain techniques and approaches (i.e., modulation, filtering, ...). The device or application that implements all of the above mentioned steps is usually referred to as a **software synthesizer**. 
 
-The first element in the synthesis process is the **oscillator** which is responsible for creating a digital representation of a real sound wave. It is important to note that one oscillator is only capable of playing back one sound at a time. Most synthesizers thus provide numerous oscillators and provide options to adjust, combine and process the individual components in order to generate more exotic and complex sounds.
+The central element of a synthesizer and at the same time the first step in the synthesis process is the **oscillator**. An oscillator is responsible for creating a digital representation of a sound wave. It is important to note that one oscillator is only capable of playing back one sound at a time. Most synthesizers thus provide numerous oscillators that are either being combined automatically or provide an interface to adjust, combine and process the individual oscillators to generate exotic and complex sounds.
 
-The final output of the synthesizer, usually a digital representation  of a complex sound wave, can then be stored in an audio or sound buffer and be transferred via the soundcard's DAC (digital to audio converter) to the speakers for playback.
+To generate a single sound wave, one approach would be to use a mathematical representation of a wave and feed it into the process. However, although this is mathematically interesting, it can become computationally expensive and is hardly implemented. Instead pre-recorded sound waves are used and played back at different rates to simulate changes in pitch. These approaches are, for example, **table lookup synthesis** or **wavetable synthesis**. Here, we will however stick with pure mathematical representations in order to understand the setup of a sound wave as well as play around with computational expenses.
 
-- What might be the central elements of an oscillator?
+A special sort of oscillator is an **LFO**, a low frequency oscillator. The frequency of an LFO is usually below 20Hz and often ranges between 0.25-5Hz. LFOs are central elements of sound synthesis. Since they are below human hearing capabilities, there frequency can only be felt and is often used to modulate, i.e., change certain parameters of audible sound waves. For example, this is done to create beat or pattern-like sounds.
 
-A special sort of oscillator is an LFO, a low frequency oscillator. The frequency of an LFO is usually below 20Hz and often ranges between 0.25-5Hz. LFOs are central elements of sound synthesis. Since they are below human hearing capabilities, there frequency can only be felt and is often used to modulate, i.e., change certain parameters of audible sound waves. For example, this is done to create beat or pattern-like sounds.
+Once the final output of the synthesis process has been computed, it is stored in an audio or sound buffer. This buffer can then be transferred (through the sound stream) to the soundcard's DAC (digital to audio converter) where it is converted into electrical voltage changes ready to be played back by the speakers.
 
-### Oscillator Wave Types
+- What are the central elements of an oscillator?
+
+## Basic Oscillator Wave Types
 
 Basic oscillators usually represent the following four fundamental types of sound waves:
 
@@ -147,61 +152,128 @@ Basic oscillators usually represent the following four fundamental types of soun
 - Triangle wave
 - Sawtooth wave
 
-#### Sine wave
+Following Fourier theorem, the sine wave can be used to create all of the other basic wave forms by combining different types of sine waves. The formulas will be given below per wave type. However, from a computational point of view, each basic wave type might as well be calculated following a simple algorithmic description. 
 
-The sine wave is the most fundamental sound wave. Following Fourier theorem, the sine wave can well be used in combination to create all of the other basic wave forms.
+
+### Sine wave
+
+The sine wave is the most fundamental sound wave.
 
 Image
 
-Formula
+```
+Sine wave = weight * Amplitude * sin ( frequency )
 
-#### Pulse wave
+with "weight" being in the range of -1.0 ... 1.0
+```
+
+
+**Natural sounds** can be approached by combining sine waves. Therefore, define a fundamental frequency and add sine waves defined by multiple integers of the fundamental frequency. The resulting sounds will be perceived as **harmonic**. In contrast, **inharmonic** sounds can be generated by combining sine waves where the overtone of the fundamental frequency are defined by non-integer multiples.
+
+#### Harmonic sounds
+
+```
+weight * Amplitude * sin ( frequency )
++ weight * Amplitude * sin ( 2 * frequency )
++ weight * Amplitude * sin ( 3 * frequency )
++ weight * Amplitude * sin ( 4 * frequency )
+...
+```
+
+- Inharmonic sounds
+
+```
+weight * Amplitude * sin ( frequency )
++ weight * Amplitude * sin ( 2.56 * frequency )
++ weight * Amplitude * sin ( 1.324 * frequency )
++ weight * Amplitude * sin ( 6.3342 * frequency )
+...
+```
+
+### Pulse wave
 
 The pulse wave is often referred to as square wave when the duration of the positive and negative cycle is the same.
 
 Image 
 
-Formula
+```
+weight * Amplitude * sin ( frequency )
++ weight * Amplitude * sin ( 3 * frequency )
++ weight * Amplitude * sin ( 5 * frequency )
++ weight * Amplitude * sin ( 7 * frequency )
+...
+```
 
-#### Triangle wave
+### Triangle wave
 
 The triangle wave is similar to the sine wave but lacks the smooth changes. Instead, the triangle wave can be considered a linear adaptation of the sine wave cycle.
 
 Image 
 
-Formula
+```
+1.0 * Amplitude * sin ( frequency )
++ 1/9 * Amplitude * sin ( (3 * frequency) - 1 )
++ 1/25 * Amplitude * sin ( 5 * frequency )
++ 1/49 * Amplitude * sin ( (7 * frequency) - 1 )
+...
+```
 
-#### Sawtooth wave
+### Sawtooth wave
 
 The sawtooth wave is similar to the triangle wave but is defined by an aprubt fallback to the trough once the peak of the wave has been reached.
 
 Image
 
-Formula
+```
+weight * Amplitude * sin ( frequency )
++ weight * Amplitude * sin ( 1/2 * frequency )
++ weight * Amplitude * sin ( 1/3 * frequency )
++ weight * Amplitude * sin ( 1/4 * frequency )
+...
+```
 
-### Practice
+## Practice
 
-#### Refactor the ofApp Example (A4) 
+### Create a Software Synthesizer Prototype (A4) 
 
 Reconsider the ofApp example. How could you turn the application into a synthesizer prototype? Add one or two dedicated oscillator objects to the synth. Conceive a first system diagram. Review the diagram in class and start refactoring the code accordingly. 
 
 - Check out the fourth assignment sheet in the assignments folder for further instructions.
 - You are encouraged to discuss the questions and answers in the group.
 
-#### Design and interact with your Sound (A5)
+
+## Controlling An Oscillator with Another
+
+One aspect of sound synthesis is the generation of complex sounds by combining different waves with each other as we have seen above. Another interesting aspect of sound synthesis is the generation of complex sounds by emplyoing one oscillator as contorl element. That is, one oscillator is used such that it controls certain parameters of another oscillator. We will explore three examples:
+
+### Sound Synthesis Sync
+
+With sound synthesis sync a **master oscillator** controls another **slave oscillator** as illustrated in the following Image. Whenever the Master oscillator has executed one cycle it forces the Slave to restart:
+
+Image
+
+### Amplitude Modulation (AM)
+
+Amplitude modulation is a central and classical technique of sound synthesis. Here, a **modulator wave** is used to change the amplitude value of another **carrier wave** as illustrated in the following Image:
 
 
+The oscillator employed to create the carrier wave usually creates sound at a fixed frequency rate that is much higher than the frequency of the modulator wave. Musically, AM synthesis simulates the **tremolo** effect, i.e., the emulation of a vibration by quickly changing the loudness of a sound.
 
-### Controlling An Oscillator with Another
+### Frequency Modulation (FM)
 
-#### Sound Synthesis Sync
+Frequency modulation is another classical technique of sound synthesis. Here, instead of modulating or changing the amplitude of the carrier wave, the **modulator wave** is used to change the frequency of the **carrier wave**, as illustrated in the following Image:
 
-#### Amplitude Modulation (AM)
+As with Amplitude Modulation, the carrier wave is usually defined at a fixed frequency. Musically, FM synthesis simulates the **vibrato** effect, i.e., the emulation of a vibration by quickly changing the pitch of a sound.
 
-#### Frequency Modulation (FM)
+## Practice 
 
+### Extend the Software Synthesizer Prototype (A5) 
 
-### Practice 
+Extend the software synthesizer by one (or more) of the above techniques. 
+
+- Check out the fifth assignment sheet in the assignments folder for further instructions.
+- You are encouraged to discuss the questions and answers in the group.
+
 
 ## Further Thoughts on Expanding the ofApp 
 

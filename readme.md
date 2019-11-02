@@ -18,7 +18,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Grading](#grading)
 - [Syllabus](#syllabus)
   - [Day 1 - Sound Generation with openFrameworks](#day-1---sound-generation-with-openframeworks)
-  - [Day 2 - MIDI Control and Graphical Objects](#day-2---midi-control-and-graphical-objects)
+  - [Day 2 - Interaction and MIDI Control](#day-2---interaction-and-midi-control)
   - [Day 3 - Driving Sound with Images](#day-3---driving-sound-with-images)
 - [Communication & Materials](#communication--materials)
 - [Technical Setup](#technical-setup)
@@ -64,16 +64,16 @@ Attendance is everything. You will receive 1 ECTS for participation. If you woul
 
 ## Day 1 - Sound Generation with openFrameworks
 
-The first day of the workshop will be dedicated to understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). We will derive a first software design diagram and implement a first prototype of an interactive synthesizer. 
+The first day of the workshop will be dedicated to sound generation and software design. First, we will focus on understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). Second we will start exploring an ofApp synthesis example and develop a first prototype of a software synthesizer.
 
 
-## Day 2 - MIDI Control and Graphical Objects
+## Day 2 - Interaction and MIDI Control
 
-The second day of the workshop will be dedicated to connecting your synthesizer to a MIDI controller and certain graphical objects. We will check out generic STL containers and aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development.
+The second day of the workshop will be dedicated to interaction and aspects of performance. We will connect the previously developed synthesizer to a MIDI controller. Moreover, we will aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development and check out certain generic STL containers to support the object management.
 
 ## Day 3 - Driving Sound with Images
 
-The third day of the workshop will be dedicated to continuing the implementation of our interactive visual synths. We will explore image data as an input source for driving the sound generators. 
+The third day of the workshop will be dedicated to continuing the implementation of the visual syntheszier. We will explore image data as an input source for driving the sound generators. 
 
 --- 
 

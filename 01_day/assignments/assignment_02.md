@@ -12,19 +12,26 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 # Assignments 2
 
-## Explore the Code
+## Explore and Adapt the Code
 
-### 1 Review the first ofApp example and understand class.
+### 1 Review the first ofApp example and understand the code.
 
 ### 2 Check out the audioOut() function. How is it implemented and what is happening there?
 
 - Comment things out and back in again to get an understanding of the waves
 
-### 3 Play around with the different sine and pulse waves to your liking. 
+### 3 Play around with the different sound waves to your liking. 
 
-- For example
-  - Generate different sine waves using different pulse waves, for example
-  - Play with adding and removing pulse waves to develop some kind of "beat"
-  - Change the frequency, phase, etc.
-  - Create a underlying beat by simpling using one wave at low frequency with a fast pulsewave
-  - Create a beat frequency by playing back only 2 frequencies that hardly differ in frequency, i.e., 200 Hz and 201 Hz; slowly increase one frequency 
+For example, consider the following
+
+- Change the frequency, phase, etc., of the individual sine waves
+- Generate different sounds by combining different waves
+- Create a underlying beat by simpling using one wave at low frequency with a fast pulse wave
+- Create a beat frequency by playing back only 2 frequencies that hardly differ in frequency, i.e., 200 Hz and 201 Hz; slowly increase one frequency 
+
+### 4 Change the Frequency through Mouse Input
+
+Before going into the details of implementing an graphical user interface, start with a simple interface using mouse and keyboard input. Consider the following:
+
+- When pressing "f", frequency changes are expected 
+- Any change of mouse_y will result in an increase or decrease of the frequency
