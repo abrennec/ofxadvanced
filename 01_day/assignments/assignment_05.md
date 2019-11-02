@@ -14,7 +14,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ## Extend the Software Synthesizer Prototype (A5) 
 
-Extend the software synthesizer by one (or more) of the above techniques. 
+Extend the software synthesizer by one (or more) of the control techniques mentioned in the script including the use of an LFO to control another oscillator.
 
 ### 1 Pick one of the mentioned control techniques and implement it.
 
