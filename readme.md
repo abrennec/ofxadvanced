@@ -15,7 +15,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Organization](#organization)
   - [Course Description](#course-description)
   - [Learning Objectives](#learning-objectives)
-  - [Grading](#grading)
+  - [Grading/ECTS](#gradingects)
 - [Syllabus](#syllabus)
   - [Day 1 - Sound Generation with openFrameworks](#day-1---sound-generation-with-openframeworks)
   - [Day 2 - Interaction and MIDI Control](#day-2---interaction-and-midi-control)
@@ -47,16 +47,16 @@ The assignments will help you understanding more advanced programming concepts o
 
 ## Learning Objectives
 
-- Deepening the understanding of the openFrameworks SDK and C++ 
-- Understanding the connection between application and driver software 
-- Getting to know the STL containers list, deque, and map and exploiting them for performance
-- Reading unknown code and understanding its software design 
-- Applying your theoretical knowledge in smaller and larger practical programming examples
-- Developing and expressing your own artistic ideas with openFrameworks 
+- Understanding software synthesis processes and their implementation
+- Working with MIDI and keyboard controllers to play back sound
+- Deepening the understanding of the openFrameworks SDK and C++ in particular regarding audio 
+- Understanding the connection between application software and driver software 
+- Handling unknown code and deriving general design diagrams
+- Developing and expressing artistic ideas with openFrameworks 
 
-## Grading 
+## Grading/ECTS 
 
-Attendance is everything. You will receive 1 ECTS for participation. If you would like to further develop the workshop project, we can agree on a feature set and additional ECTS.
+Attendance is everything, no grading. You will receive 1 ECTS for participation. If you would like to further develop the workshop project, we can agree on a feature set and additional ECTS.
 
 ---
 
