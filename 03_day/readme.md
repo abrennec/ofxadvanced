@@ -12,7 +12,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 **Table of Contents**
 - [Day 3: Driving Sound with Images](#day-3-driving-sound-with-images)
-  - [Reviewing the Code](#reviewing-the-code)
+  - [Practice: Code Review](#practice-code-review)
   - [Using Images as Input Data](#using-images-as-input-data)
   - [ofApp: System Driven Melodies](#ofapp-system-driven-melodies)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
@@ -23,7 +23,10 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 The third day of the workshop will be dedicated to exploring image data as an input source for driving your sound generators. You will expand your applications by using image parameters to automatically create melodies or adjust the sound design.
 
 
-## Reviewing the Code
+## Practice: Code Review
+
+Before we start working on further features of the synthesizer, we will start with a code review session. Review the previously developed prototype and identify one or two aspects of your implementation that you would like to show and review with the group. Consider aspects where you felt stuck as well as aspects where you found a good solution. 
+
 
 
 ## Using Images as Input Data

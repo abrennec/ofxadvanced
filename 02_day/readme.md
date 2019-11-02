@@ -12,6 +12,8 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 **Table of Contents**
 - [Day 2: Interaction and MIDI Control](#day-2-interaction-and-midi-control)
+  - [Practice: Code Review](#practice-code-review)
+  - [Interaction](#interaction)
   - [MIDI Protocol](#midi-protocol)
   - [Bouncing Balls Concept](#bouncing-balls-concept)
   - [Applying your Synth to Bouncing Balls](#applying-your-synth-to-bouncing-balls)
@@ -23,6 +25,14 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 # Day 2: Interaction and MIDI Control
 
 The second day of the workshop will be dedicated to interaction and aspects of performance. We will connect the previously developed synthesizer to a MIDI controller. Moreover, we will aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development and check out certain generic STL containers to support the object management.
+
+## Practice: Code Review
+
+Before we start working on further features of the synthesizer, we will start with a code review session. Review the previously developed prototype and identify one or two aspects of your implementation that you would like to show and review with the group. Consider aspects where you felt stuck as well as aspects where you found a good solution. 
+
+## Interaction 
+
+
 
 ## MIDI Protocol 
 
