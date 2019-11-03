@@ -167,20 +167,20 @@ with "weight" being in the range of -1.0 ... 1.0
 #### Harmonic sounds
 
 ```
-weight * Amplitude * sin ( frequency )
-+ weight * Amplitude * sin ( 2 * frequency )
-+ weight * Amplitude * sin ( 3 * frequency )
-+ weight * Amplitude * sin ( 4 * frequency )
+Amplitude * sin ( frequency )
++ Amplitude * sin ( 2 * frequency )
++ Amplitude * sin ( 3 * frequency )
++ Amplitude * sin ( 4 * frequency )
 ...
 ```
 
 - Inharmonic sounds
 
 ```
-weight * Amplitude * sin ( frequency )
-+ weight * Amplitude * sin ( 2.56 * frequency )
-+ weight * Amplitude * sin ( 1.324 * frequency )
-+ weight * Amplitude * sin ( 6.3342 * frequency )
+Amplitude * sin ( frequency )
++ Amplitude * sin ( 2.56 * frequency )
++ Amplitude * sin ( 1.324 * frequency )
++ Amplitude * sin ( 6.3342 * frequency )
 ...
 ```
 
@@ -191,10 +191,10 @@ The pulse wave is often referred to as square wave when the duration of the posi
 Image 
 
 ```
-weight * Amplitude * sin ( frequency )
-+ weight * Amplitude * sin ( 3 * frequency )
-+ weight * Amplitude * sin ( 5 * frequency )
-+ weight * Amplitude * sin ( 7 * frequency )
+Amplitude * sin ( frequency )
++ Amplitude * sin ( 3 * frequency )
++ Amplitude * sin ( 5 * frequency )
++ Amplitude * sin ( 7 * frequency )
 ...
 ```
 
@@ -205,10 +205,10 @@ The triangle wave is similar to the sine wave but lacks the smooth changes. Inst
 Image 
 
 ```
-1.0 * Amplitude * sin ( frequency )
-+ 1/9 * Amplitude * sin ( (3 * frequency) - 1 )
-+ 1/25 * Amplitude * sin ( 5 * frequency )
-+ 1/49 * Amplitude * sin ( (7 * frequency) - 1 )
+1.0 * sin ( frequency )
++ 1/9 * sin ( (3 * frequency) - 1 )
++ 1/25 * sin ( 5 * frequency )
++ 1/49 * sin ( (7 * frequency) - 1 )
 ...
 ```
 
