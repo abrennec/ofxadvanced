@@ -18,8 +18,8 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Grading/ECTS](#gradingects)
 - [Syllabus](#syllabus)
   - [Day 1 - Sound Generation with openFrameworks](#day-1---sound-generation-with-openframeworks)
-  - [Day 2 - Interaction and MIDI Control](#day-2---interaction-and-midi-control)
-  - [Day 3 - Driving Sound with Images](#day-3---driving-sound-with-images)
+  - [Day 2 - Interaction and Control](#day-2---interaction-and-control)
+  - [Day 3 - Sound and Images](#day-3---sound-and-images)
 - [Communication & Materials](#communication--materials)
 - [Technical Setup](#technical-setup)
   - [Pre-requisites](#pre-requisites)
@@ -40,7 +40,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ## Course Description 
 
-In this course, we will use [openFrameworks](http://openframeworks.cc) as our creative coding toolkit and will explore its capabilities to work with audio and visuals. To do so, we will first dive into the specifics of how openFrameworks implements audio and provides access to the underlying audio hardware APIs. Following that, we will synthesize sounds using openFrameworks soundbuffers and output routines. We will use MIDI control and the chromatic scale to create melody and interact with the sounds. Finally, we will explore how to visualize certain sound parameters and connect them with graphical sound objects. The interaction will primarily be user-driven yet in a last step we will explore image data to drive our sound generation.
+In this course, we will use [openFrameworks](http://openframeworks.cc) as our creative coding toolkit to  explore its capabilities for developing a visual software synthesizer. To do so, we will first dive into the specifics of how openFrameworks implements audio and provides access to the underlying audio hardware APIs. Following that, we will develop a first synthesizer prototype using openFrameworks' soundbuffers and audio output routines using different types of user interaction. Furthermore, we will extend sound capabilites by adding oscillators interaction. As a part of that we will use MIDI control and the chromatic scale to create melody and interact with the sounds. Finally, we will explore how to visualize certain sound parameters and connect them with graphical sound objects. The interaction will primarily be user-driven yet in a last step we will explore image data to drive our sound generation.
 
 The assignments will help you understanding more advanced programming concepts of openFrameworks. Moreover, the coding assignments are intended to be built upon in the case you would like to extend them further.
 
@@ -66,14 +66,13 @@ Attendance is everything, no grading. You will receive 1 ECTS for participation.
 
 The first day of the workshop will be dedicated to sound generation and software design. First, we will focus on understanding how openFrameworks implements sound and connects software with the underlying hardware (i.e., audio interface / soundcard). Second we will start exploring an ofApp synthesis example and develop a first prototype of a software synthesizer.
 
+## Day 2 - Interaction and Control
 
-## Day 2 - Interaction and MIDI Control
+The second day of the workshop will be dedicated to interaction and control. We will have the oscillators interact with each other and connect the previously developed synthesizer to a MIDI controller. Moreover, we will explore performance aspects and and check out further generic STL containers to support the object management.
 
-The second day of the workshop will be dedicated to interaction and aspects of performance. We will connect the previously developed synthesizer to a MIDI controller. Moreover, we will aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development and check out certain generic STL containers to support the object management.
+## Day 3 - Sound and Images
 
-## Day 3 - Driving Sound with Images
-
-The third day of the workshop will be dedicated to continuing the implementation of the visual syntheszier. We will explore image data as an input source for driving the sound generators. 
+The third day of the workshop will be dedicated to finalizing the implementation of the syntheszier. Moreover, we will aim for connecting visuals to the sound engine. We will start with a classical "bouncing balls" example and explore image data as an input source for driving the sound generators. 
 
 --- 
 

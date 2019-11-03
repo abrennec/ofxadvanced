@@ -30,12 +30,6 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
     - [Sawtooth wave](#sawtooth-wave)
   - [Practice](#practice-2)
     - [Create a Software Synthesizer Prototype (A4)](#create-a-software-synthesizer-prototype-a4)
-  - [Controlling An Oscillator with Another](#controlling-an-oscillator-with-another)
-    - [Sound Synthesis Sync](#sound-synthesis-sync)
-    - [Amplitude Modulation (AM)](#amplitude-modulation-am)
-    - [Frequency Modulation (FM)](#frequency-modulation-fm)
-  - [Practice](#practice-3)
-    - [Extend the Software Synthesizer Prototype (A5)](#extend-the-software-synthesizer-prototype-a5)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
@@ -239,42 +233,6 @@ weight * Amplitude * sin ( frequency )
 Reconsider the ofApp example. How could you turn the application into a synthesizer prototype? Add one or two dedicated oscillator objects to the synth. Conceive a first system diagram. Review the diagram in class and start refactoring the code accordingly. 
 
 - Check out the fourth assignment sheet in the assignments folder for further instructions.
-- You are encouraged to discuss the questions and answers in the group.
-
-
-## Controlling An Oscillator with Another
-
-One aspect of sound synthesis is the generation of complex sounds by combining different waves with each other as we have seen above. Another interesting aspect of sound synthesis is the generation of complex sounds by emplyoing one oscillator as control element. That is, one oscillator is used such that it controls certain parameters of another oscillator. For example, the LFO is often used to control another sound wave as we have already seen in the initial ofApp example. Here, we will explore three further techniques:
-
-### Sound Synthesis Sync
-
-With sound synthesis sync a **master oscillator** controls another **slave oscillator** as illustrated in the following Image. Whenever the Master oscillator has executed one cycle it forces the Slave to restart:
-
-Image
-
-### Amplitude Modulation (AM)
-
-Amplitude modulation is a central and classical technique of sound synthesis. Here, a **modulator wave** is used to change the amplitude value of another **carrier wave** as illustrated in the following Image:
-
-Image
-
-The oscillator employed to create the carrier wave usually creates sound at a fixed frequency rate that is much higher than the frequency of the modulator wave. Musically, AM synthesis simulates the **tremolo** effect, i.e., the emulation of a vibration by quickly changing the loudness of a sound.
-
-### Frequency Modulation (FM)
-
-Frequency modulation is another classical technique of sound synthesis. Here, instead of modulating or changing the amplitude of the carrier wave, the **modulator wave** is used to change the frequency of the **carrier wave**, as illustrated in the following Image:
-
-Image
-
-As with Amplitude Modulation, the carrier wave is usually defined at a fixed frequency. Musically, FM synthesis simulates the **vibrato** effect, i.e., the emulation of a vibration by quickly changing the pitch of a sound.
-
-## Practice 
-
-### Extend the Software Synthesizer Prototype (A5) 
-
-Extend the software synthesizer by one (or more) of the above techniques. 
-
-- Check out the fifth assignment sheet in the assignments folder for further instructions.
 - You are encouraged to discuss the questions and answers in the group.
 
 

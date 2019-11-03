@@ -12,18 +12,25 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 # Assignments 2
 
-Reconsider your software synthesizer prototype. Connect the MIDI controller with your synthesizer in such a way that it allows you to play back melodies. 
+## Get familiar with ofxMidi
 
-### 1 Connect the MIDI controller to your synthesizer ofApp 
+### 1 Download and add the ofxMidi addon to your openFrameworks addons folder
 
-Apart from connecting the Midi controller to your software synthesizer via ofxMidi, the goal of this task is to have it control the playing back your sound at different pitches. To do so, consider the following questions:
+- ofxMidi can be found online at https://github.com/danomatika/ofxMidi
 
-- What kind of ofxMidi objects will you need to receive Midi messages?
-- How can you receive and process the Midi messages?
-- What kind of part of the Midi message do you have to evaluate?
-- How can you trigger your synth at different pitches?
+### 2 Execute the ofxMidiApp in the code folder
 
-### 2 Add Sound Changes
+Compile and run the example. Plug-in one of the provided Midi controllers. Make sure you adjust the Midi port correctly in the setup routine. Checkout the example.
 
-In addition to playing back sound at different pitches, conceive an adjustment to the sound itself and trigger a change in sound by sending and processing a program change event. 
+### 3 Check out ofxMidi Classes
 
+Get a first understanding of the functionality provided by the classes. In particular, review the following classes:
+
+- ofxMidiTypes
+- ofxMidi and ofxBaseMidi
+- ofxMidiConstants
+- Midi In 
+- MIDI Out
+- MIDI Message
+
+### 4 Play around with the code to your liking

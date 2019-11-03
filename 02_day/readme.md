@@ -11,31 +11,64 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 ---
 
 **Table of Contents**
-- [Day 2: Interaction and MIDI Control](#day-2-interaction-and-midi-control)
+- [Day 2: Interaction and Control](#day-2-interaction-and-control)
   - [Practice: Code Review](#practice-code-review)
-  - [Interaction](#interaction)
+  - [Sound Interaction - Controlling One Oscillator with Another](#sound-interaction---controlling-one-oscillator-with-another)
+    - [Sound Synthesis Sync](#sound-synthesis-sync)
+    - [Amplitude Modulation (AM)](#amplitude-modulation-am)
+    - [Frequency Modulation (FM)](#frequency-modulation-fm)
+  - [Practice](#practice)
+    - [Extend the Software Synthesizer Prototype (A1)](#extend-the-software-synthesizer-prototype-a1)
+  - [Keyboard Control](#keyboard-control)
   - [MIDI Protocol](#midi-protocol)
     - [Hardware Interface](#hardware-interface)
     - [Communications Protocol](#communications-protocol)
-  - [Practice](#practice)
-    - [Check out ofxMidi (A1)](#check-out-ofxmidi-a1)
-    - [MIDI Notes (A2)](#midi-notes-a2)
-  - [Bouncing Balls Concept](#bouncing-balls-concept)
-  - [Applying your Synth to Bouncing Balls](#applying-your-synth-to-bouncing-balls)
-  - [Performance Aspects](#performance-aspects)
-  - [Generic Containers](#generic-containers)
+  - [Practice](#practice-1)
+    - [Check out ofxMidi (A2)](#check-out-ofxmidi-a2)
+    - [MIDI Notes (A3)](#midi-notes-a3)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
-# Day 2: Interaction and MIDI Control
+# Day 2: Interaction and Control
 
-The second day of the workshop will be dedicated to interaction and aspects of performance. We will connect the previously developed synthesizer to a MIDI controller. Moreover, we will aim for developing a user-driven visual synth. We will explore a classical "bouncing balls" example as a starting point for further development and check out certain generic STL containers to support the object management.
+The second day of the workshop will be dedicated to interaction and control. We will have the oscillators interact with each other and connect the previously developed synthesizer to a MIDI controller. Moreover, we will explore performance aspects and and check out further generic STL containers to support the object management.
 
 ## Practice: Code Review
 
 Before we start working on further features of the synthesizer, we will start with a code review session. Review the previously developed prototype and identify one or two aspects of your implementation that you would like to show and review with the group. Consider aspects where you felt stuck as well as aspects where you found a good solution. 
 
-## Interaction 
+## Sound Interaction - Controlling One Oscillator with Another
+
+One aspect of sound synthesis is the generation of complex sounds by combining different waves with each other as we have seen above. Another interesting aspect of sound synthesis is the generation of complex sounds by emplyoing one oscillator as control element. That is, one oscillator is used such that it controls certain parameters of another oscillator. For example, the LFO is often used to control another sound wave as we have already seen in the initial ofApp example. Here, we will explore three techniques illustrated in the following Image:
+
+(Image)[images/AMFM.png]
+
+### Sound Synthesis Sync
+
+With sound synthesis sync a **master oscillator** controls another **slave oscillator** as illustrated in the following Image. Whenever the Master oscillator has executed one cycle it forces the Slave to restart:
+
+### Amplitude Modulation (AM)
+
+Amplitude modulation is a central and classical technique of sound synthesis. Here, a **modulator wave** is used to change the amplitude value of another **carrier wave** as illustrated in the following Image:
+
+The oscillator employed to create the carrier wave usually creates sound at a fixed frequency rate that is much higher than the frequency of the modulator wave. Musically, AM synthesis simulates the **tremolo** effect, i.e., the emulation of a vibration by quickly changing the loudness of a sound.
+
+### Frequency Modulation (FM)
+
+Frequency modulation is another classical technique of sound synthesis. Here, instead of modulating or changing the amplitude of the carrier wave, the **modulator wave** is used to change the frequency of the **carrier wave**, as illustrated in the following Image:
+
+As with Amplitude Modulation, the carrier wave is usually defined at a fixed frequency. Musically, FM synthesis simulates the **vibrato** effect, i.e., the emulation of a vibration by quickly changing the pitch of a sound.
+
+## Practice 
+
+### Extend the Software Synthesizer Prototype (A1) 
+
+Extend the software synthesizer by one (or more) of the above techniques. 
+
+- Check out the fifth assignment sheet in the assignments folder for further instructions.
+- You are encouraged to discuss the questions and answers in the group.
+
+## Keyboard Control 
 
 With a first software synthesizer application at hand, we will need to find a convenient way to actually trigger the generation of sounds and melodies. Classically, this is achieved by connecting a keyboard controller to the computer that holds the synthesizer software. The keyboard controller themselves do not play or generate any kind of sound. Rather, they serve as host for specific controller knobs and send certain control parameters to the synthesizer. The receiving synthesizer evaluates the sent messages and triggers certain actions, i.e., generates and plays back a sound, switches between sounds, changes certain modulation parameters, etc. The communications protocol that is used for sending and receiving musical information was developed in the early 1980s. It combines both a hardware interface with a software data exchange protocol and is called MIDI - Musical Instrument Digital Interface.
 
@@ -76,7 +109,7 @@ Midi was primarily introduced to connect and control multiple instruments. One c
 
 ## Practice
 
-### Check out ofxMidi (A1)
+### Check out ofxMidi (A2)
 
 openFrameworks also supports the MIDI communications protocol with the help of a dedicated ofxMidi addon. 
 
@@ -84,8 +117,7 @@ openFrameworks also supports the MIDI communications protocol with the help of a
 - You are encouraged to discuss the questions and answers in the group.
 
 
-
-### MIDI Notes (A2)
+### MIDI Notes (A3)
 
 A MIDI message usually contains all the information necessary to describe (and thus trigger) a musical event, for example. One part of a MIDI message is the **note number** which refers to the actual pitch. MIDI supports 128 different note numbers aka pitches and thus up to 10 different octaves. One octave is comprised of 12 individual pitches, for example: 
 
@@ -109,21 +141,6 @@ For example, given 440 Hz (pitch A4, MIDI note number 69) as a reference frequen
 - af = 440.0 * 2 ^ (midiVal-69)/12.0))
 
 Reconsider your software synthesizer prototype. Connect the MIDI controller with your synthesizer in such a way that it allows you to play back melodies. Check out the second assignment sheet for further instructions. 
-
-## Bouncing Balls Concept
-
-## Applying your Synth to Bouncing Balls
-
-- scales (major, minor)
-
-## Performance Aspects
-
-- object creation
-- slider to adjust number of objects
-- copying data, audio input ?
-
-## Generic Containers
-
 
 ## Further Thoughts on Expanding the ofApp 
 

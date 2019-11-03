@@ -22,7 +22,7 @@ To start with, pick one of the basic wave type oscillators not creating sine wav
 
 ### 2 Conceive a simple software synthesizer 
 
-The software should be conceived such that more oscillator types can be added easily. In terms of interaction, the synthesizer should allow for switching between the oscillator types and for changing their frequency values. The synthesizer should be independent from ofApp as much as possible so that you might be able to easily re-use your code with a different SDK.
+The software should be conceived such that it generates a specific sound to your liking. It should be possible to at least change the fundamental frequency of the sound, the corresponding amplitude and phase parameters. Moreover, the synth should feature at least two different wave types and should be designed that more oscillator types can be added easily. In terms of interaction, the synthesizer should allow for switching between the oscillator types. The synthesizer should be independent from ofApp as much as possible so that you might be able to easily re-use your code with a different SDK.
 Consider the following questions to get started:
 
 - What kind of classes and objects will you need to specify?

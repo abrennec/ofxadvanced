@@ -12,25 +12,14 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 # Assignments 1
 
-## Get familiar with ofxMidi
+## Extend the Software Synthesizer Prototype (A1) 
 
-### 1 Download and add the ofxMidi addon to your openFrameworks addons folder
+Extend the software synthesizer by one (or more) of the control techniques mentioned in the script including the use of an LFO to control another oscillator.
 
-- ofxMidi can be found online at https://github.com/danomatika/ofxMidi
+### 1 Pick one of the mentioned control techniques and implement it.
 
-### 2 Execute the ofxMidiApp in the code folder
+Consider the following:
 
-Compile and run the example. Plug-in one of the provided Midi controllers. Make sure you adjust the Midi port correctly in the setup routine. Checkout the example.
-
-### 3 Check out ofxMidi Classes
-
-Get a first understanding of the functionality provided by the classes. In particular, review the following classes:
-
-- ofxMidiTypes
-- ofxMidi and ofxBaseMidi
-- ofxMidiConstants
-- Midi In 
-- MIDI Out
-- MIDI Message
-
-### 4 Play around with the code to your liking
+- How do you combine two oscillators programmatically?
+- How do you compute the resulting wave?
+- What kind of parameters do you expose to the user?
