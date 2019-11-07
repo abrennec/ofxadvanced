@@ -142,9 +142,11 @@ Once the final output of the synthesis process has been computed, it is stored i
 Basic oscillators usually represent the following four fundamental types of sound waves:
 
 - Sine wave
-- Pulse wave
+- Pulse/square wave
 - Triangle wave
 - Sawtooth wave
+
+![Image](images/Waveforms.png)
 
 Following Fourier theorem, the sine wave can be used to create all of the other basic wave forms by combining different types of sine waves. The formulas will be given below per wave type. However, from a computational point of view, each basic wave type might as well be calculated following a simple algorithmic description. 
 
@@ -153,12 +155,8 @@ Following Fourier theorem, the sine wave can be used to create all of the other 
 
 The sine wave is the most fundamental sound wave.
 
-Image
-
 ```
-Sine wave = weight * Amplitude * sin ( frequency )
-
-with "weight" being in the range of -1.0 ... 1.0
+y = A * sin ( 2 π f t )
 ```
 
 
@@ -167,48 +165,45 @@ with "weight" being in the range of -1.0 ... 1.0
 #### Harmonic sounds
 
 ```
-Amplitude * sin ( frequency )
-+ Amplitude * sin ( 2 * frequency )
-+ Amplitude * sin ( 3 * frequency )
-+ Amplitude * sin ( 4 * frequency )
+A * sin ( 2 π f t )
++ A * sin ( 2 * 2 π f t )
++ A * sin ( 3 * 2 π f t )
++ A * sin ( 4 * 2 π f t )
 ...
 ```
 
 - Inharmonic sounds
 
 ```
-Amplitude * sin ( frequency )
-+ Amplitude * sin ( 2.56 * frequency )
-+ Amplitude * sin ( 1.324 * frequency )
-+ Amplitude * sin ( 6.3342 * frequency )
+A * sin ( 2 π f t )
++ A * sin ( 2.453 * 2 π f t )
++ A * sin ( 1.343 * 2 π f t )
++ A * sin ( 4.56342 * 2 π f t )
 ...
 ```
 
 ### Pulse wave
 
-The pulse wave is often referred to as square wave when the duration of the positive and negative cycle is the same.
-
-Image 
+The pulse wave is often referred to as square wave when the duration of the positive and negative cycle is the same. 
 
 ```
-Amplitude * sin ( frequency )
-+ Amplitude * sin ( 3 * frequency )
-+ Amplitude * sin ( 5 * frequency )
-+ Amplitude * sin ( 7 * frequency )
+A * sin ( 2 π f t  )
++ 1/3 * A * sin ( 3 * 2 π f t  )
++ 1/5 * A * sin ( 5 * 2 π f t  )
++ 1/7 * A * sin ( 7 * 2 π f t  )
 ...
 ```
 
 ### Triangle wave
 
 The triangle wave is similar to the sine wave but lacks the smooth changes. Instead, the triangle wave can be considered a linear adaptation of the sine wave cycle.
-
-Image 
+ 
 
 ```
-1.0 * sin ( frequency )
-+ 1/9 * sin ( (3 * frequency) - 1 )
-+ 1/25 * sin ( 5 * frequency )
-+ 1/49 * sin ( (7 * frequency) - 1 )
+A * cos ( 2 π f t  )
++ 1/9 * A * cos ( 3 * 2 π f t ) 
++ 1/25 * A * cos ( 5 * 2 π f t  )
++ 1/49 * A * cos ( 7 * 2 π f t ) 
 ...
 ```
 
@@ -216,13 +211,11 @@ Image
 
 The sawtooth wave is similar to the triangle wave but is defined by an aprubt fallback to the trough once the peak of the wave has been reached.
 
-Image
-
 ```
-weight * Amplitude * sin ( frequency )
-+ weight * Amplitude * sin ( 1/2 * frequency )
-+ weight * Amplitude * sin ( 1/3 * frequency )
-+ weight * Amplitude * sin ( 1/4 * frequency )
+ A * sin ( 2 π f t )
+- 1/2 * A * sin ( 2 * 2 π f t )
++ 1/3 * A * sin ( 3 * 2 π f t )
+- 1/4 * A * sin ( 4 * 2 π f t )
 ...
 ```
 

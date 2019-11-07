@@ -1,1 +1,0 @@
-This example encapsulates the audio functionality in a dedicated ofSynth class.
