@@ -147,6 +147,7 @@ Basic oscillators usually represent the following four fundamental types of soun
 - Sawtooth wave
 
 ![Image](images/Waveforms.png)
+[Image Source Wikipedia, last access 19/11/08](https://en.wikipedia.org/wiki/Sawtooth_wave#/media/File:Waveforms.svg)
 
 Following Fourier theorem, the sine wave can be used to create all of the other basic wave forms by combining different types of sine waves. The formulas will be given below per wave type. However, from a computational point of view, each basic wave type might as well be calculated following a simple algorithmic description. 
 
