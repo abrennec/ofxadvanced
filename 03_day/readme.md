@@ -12,14 +12,10 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 **Table of Contents**
 - [Day 3: Driving Sound with Images](#day-3-driving-sound-with-images)
-  - [Practice: Code Review](#practice-code-review)
-  - [Bouncing Balls Concept](#bouncing-balls-concept)
-  - [Applying your Synth to Bouncing Balls](#applying-your-synth-to-bouncing-balls)
-  - [Performance Aspects](#performance-aspects)
-  - [Generic Containers](#generic-containers)
-  - [Using Images as Input Data](#using-images-as-input-data)
-  - [ofApp: System Driven Melodies](#ofapp-system-driven-melodies)
-  - [ofx](#ofx)
+  - [Inspirations & Backgrounds](#inspirations--backgrounds)
+  - [OpenCV](#opencv)
+  - [openFrameworks and OpenCV](#openframeworks-and-opencv)
+  - [Sonification and Music](#sonification-and-music)
   - [Further Thoughts on Expanding the ofApp](#further-thoughts-on-expanding-the-ofapp)
 
 
@@ -28,45 +24,56 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 The third day of the workshop will be dedicated to finalizing the implementation of the syntheszier. Moreover, we will aim for connecting visuals to the sound engine. We will start with a classical "bouncing balls" example and explore image data as an input source for driving the sound generators. 
 
 
-## Practice: Code Review
+## Inspirations & Backgrounds
 
-Before we start working on further features of the synthesizer, we will start with a code review session. Review the previously developed prototype and identify one or two aspects of your implementation that you would like to show and review with the group. Consider aspects where you felt stuck as well as aspects where you found a good solution. 
+- [Auditory display for the blind](https://www.seeingwithsound.com)
+  - [Image to sound mapping](https://www.seeingwithsound.com/im2sound.htm)
+  - [Technical concept](https://www.seeingwithsound.com/paper0.gif) 
+- [Artistic motion to sound and body movement](http://www.davidrokeby.com/body.html)
+  - [Challenges in the Intermodal Challenges of the Art](http://www.davidrokeby.com/Culturall2/0_introduction.html)
+- [Pixelsynth](https://ojack.github.io/PIXELSYNTH/)
 
-## Bouncing Balls Concept
+## OpenCV
 
-## Applying your Synth to Bouncing Balls
+[OpenCV](http://opencv.org/) is an open source library that provides an enormous corpus of computer vision algorithms. The library has a modular structure; main components comprise algorithms for
 
-- scales (major, minor)
+- Core features including basic calculations and matrix operations, setting up of data structures etc.
+- Image processing including image filtering and transformation methods
+- Video analysis including motion estimation and object detection
+- Object detection including specfic pre-defined objects to be detected 
+- Video I/O
+- GUI features
+- and many more 
 
-## Performance Aspects
+Since OpenCV works with image and video data primarily, large amounts of data can be aggregated and processed. OpenCV supports automatic memory allocation so if you start working with Matrix and Image data the underlying classes will allocate and release the memory required automatically.
 
-- object creation
-- slider to adjust number of objects
-- copying data, audio input ?
+Templates are used only to a very limited extent in OpenCV as they require certain computational overhead. Instead, OpenCV provides a fixed set of data structures and types that can be worked with. 
 
-## Generic Containers
+When working with objects and in particular motion detection between objects, different algorithms exist, primarily
 
+- Farneback 
+- Lucas-Kanade
 
-## Using Images as Input Data
+Farneback is a two frame motion estimation that uses a polynomial expansion, approximating the neighborhood of each pixel with a polynomial to detect displacement of pixels. Farneback belongs to global/dense methods that process all of the images' pixels.
 
-- parameters
-- reading input, ofPixel, ofImage
+Lucas-Kanade is also a two frame motion estimation method that uses, however, minimization and calculates differences in displacement only for few selected points of the image. LK hence belongs to the local/sparse methods that are not as accurate but computationally more efficient.
 
-## ofApp: System Driven Melodies
-
-- major, minor scales
-- trigger bouncing balls based on image data
-- blend bouncing balls with images
-- ... ?
+Both methods require an understanding of the [image gradients](https://docs.opencv.org/master/d5/d0f/tutorial_py_gradients.html).
 
 
-## ofx
+## openFrameworks and OpenCV
 
-- ofxPDSP
-  - data to wave example
-- image to sound
+openFrameworks provides access to OpenCV functionality per default with the addons [ofxOpenCV](https://openframeworks.cc/documentation/ofxOpenCv/) that is part of the general SDK. Additionally, another addon called [ofxCv](https://github.com/kylemcdonald/ofxCv) has been developed that provides multiple different example projects and aims for a straightforward and lightweight implementation of OpenCV features. Also, ofxCv wraps is actively maintained and wraps the latest features of OpenCV.
 
-- flow distort
+## Sonification and Music
+
+- How to harmonize sonified data?
+- Mapping from specific image data to musical scales as a first step!
 
 
 ## Further Thoughts on Expanding the ofApp
+
+- Check out non-photorealistic rendering
+- Check out further openCV related concepts and approaches
+  - [OpenCV core functionality](https://docs.opencv.org/3.4/de/d7a/tutorial_table_of_content_core.html)
+  - [OpenCV Image Processing](https://docs.opencv.org/3.4/d7/da8/tutorial_table_of_content_imgproc.html)

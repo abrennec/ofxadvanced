@@ -25,6 +25,7 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
   - [Basic Oscillator Wave Types](#basic-oscillator-wave-types)
     - [Sine wave](#sine-wave)
       - [Harmonic sounds](#harmonic-sounds)
+      - [Inharmonic sounds](#inharmonic-sounds)
     - [Pulse wave](#pulse-wave)
     - [Triangle wave](#triangle-wave)
     - [Sawtooth wave](#sawtooth-wave)
@@ -173,7 +174,7 @@ A * sin ( 2 π f t )
 ...
 ```
 
-- Inharmonic sounds
+#### Inharmonic sounds
 
 ```
 A * sin ( 2 π f t )

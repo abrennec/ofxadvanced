@@ -30,6 +30,8 @@ Prof. Dr. Angela Brennecke | a.brennecke@filmuniversitaet.de | Film University B
 
 ---
 
+Additional content: https://drive.google.com/open?id=144AFP28D90mBaz59AaBJ-yRNwQPf1T81
+
 # Overview of the Course
 
 ## Organization 
@@ -109,7 +111,7 @@ With XCode 11, a new codesigning restriction has been introduced by Apple that r
 
 To fix this problem, you have three solutions:
 
-- Downgrade XCode to pre-v11
+- Downgrade XCode to pre-v11 or simply **do not upgrade** in case you still use an older version of XCode
 - Download a nightly build of openFrameworks and
   - use it or
   - simply copy the library "libmodex.dylib" from the folder libs/fmodex/lib/osx/* from the ofx nightly build to that same folder of the latest stable build; nightly builds can be downloaded from here

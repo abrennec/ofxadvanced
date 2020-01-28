@@ -45,7 +45,10 @@ One aspect of sound synthesis is the generation of complex sounds by combining d
 
 ### Sound Synthesis Sync
 
-With sound synthesis sync a **master oscillator** controls another **slave oscillator** as illustrated in the following Image. Whenever the Master oscillator has executed one cycle it forces the Slave to restart:
+With sound synthesis sync a **master oscillator** controls another **slave oscillator** as illustrated in the following Image. Whenever the Master oscillator has executed one cycle of its loop, it forces the Slave to restart:
+
+![Image](images/OscillatorSync.jpg)
+[Image Source, last access 19/11/08](https://macprovid.vo.llnwd.net/o43/hub/media/1130/10852/Fig_3.jpg)
 
 ### Amplitude Modulation (AM)
 
@@ -53,11 +56,31 @@ Amplitude modulation is a central and classical technique of sound synthesis. He
 
 The oscillator employed to create the carrier wave usually creates sound at a fixed frequency rate that is much higher than the frequency of the modulator wave. Musically, AM synthesis simulates the **tremolo** effect, i.e., the emulation of a vibration by quickly changing the loudness of a sound.
 
+To control the amplitude A1 of the carrier with the modulator's wave, the following modulation is applied to the wave forms:
+
+- A1 = a1 * sin (2 π f1 t)
+- A2 = a2 * sin (2 π f2 t)
+- A1 = ( a1 + (A2) ) * sin (2 π f t)
+
 ### Frequency Modulation (FM)
 
 Frequency modulation is another classical technique of sound synthesis. Here, instead of modulating or changing the amplitude of the carrier wave, the **modulator wave** is used to change the frequency of the **carrier wave**, as illustrated in the following Image:
 
 As with Amplitude Modulation, the carrier wave is usually defined at a fixed frequency. Musically, FM synthesis simulates the **vibrato** effect, i.e., the emulation of a vibration by quickly changing the pitch of a sound.
+
+To control the amplitude A1 of the carrier with the modulator's wave, the following modulation is applied to the wave forms:
+
+- A1 = a1 * sin (2 π f1 t)
+- A2 = a2 * sin (2 π f2 t)
+- A1 = a1 * sin ((2 π f + A2) t)
+
+
+AM and FM modulation are depicted in the following image:
+
+![Image](images/AMFM.png)
+[Image Source, last access 19/11/08](...)
+
+
 
 ## Practice 
 
